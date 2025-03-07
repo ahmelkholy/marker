@@ -1,0 +1,6 @@
+Loaded layout model s3://layout/2025_02_18 on device cpu with dtype torch.float32
+Loaded texify model s3://texify/2025_02_18 on device cpu with dtype torch.float32
+Loaded recognition model s3://text_recognition/2025_02_18 on device cpu with dtype torch.float32
+Loaded table recognition model s3://table_recognition/2025_02_18 on device cpu with dtype torch.float32
+Loaded detection model s3://text_detection/2025_02_28 on device cpu with dtype torch.float32
+Loaded detection model s3://inline_math_detection/2025_02_24 on device cpu with dtype torch.float32
