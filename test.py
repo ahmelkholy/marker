@@ -2,7 +2,8 @@ import os
 import subprocess
 
 # Use raw string for Windows path to avoid escape character issues
-filepath = r"D:\Zotero\storage\GZRAPEBT\J. Michael Fitzpatrick - 2013 - Computer programming with MATLAB.pdf"
+filepath = r"D:\Project_ETAP\06.WTIIRA\Attachments\PB Guide 2015_PFCED111008EN_V1.pdf"
+
 output_folder = r"D:\Proj.Other\Marker_pdf\Output"
 output_file = os.path.join(output_folder, "extracted_text.txt")
 
