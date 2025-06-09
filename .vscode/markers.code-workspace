@@ -2,6 +2,10 @@
   "folders": [
     {
       "path": ".."
+    },
+    {
+      "name": "conversion_results",
+      "path": "..\\marker-env\\Lib\\site-packages\\conversion_results"
     }
   ],
   "settings": {
@@ -11,6 +15,7 @@
       "activityBarBadge.foreground": "#262626",
       "statusBar.background": "#262626",
       "statusBar.foreground": "#e9dbb7"
-    }
+    },
+    "powershell.cwd": "Marker_pdf"
   }
 }
