@@ -1,0 +1,418 @@
+:root {
+  /* Use VS Code's built-in theme variables for dynamic theming */
+  --text-color: var(--vscode-editor-foreground);
+  --background-color: var(--vscode-editor-background);
+  --link-color: var(--vscode-textLink-foreground);
+  --code-bg: var(--vscode-textCodeBlock-background);
+  --blockquote-color: var(--vscode-descriptionForeground);
+  --border-color: var(--vscode-panel-border);
+  --table-border: var(--vscode-panel-border);
+  --table-stripe: var(--vscode-editor-selectionBackground);
+  --heading-color: var(--vscode-editor-foreground);
+
+  /* New accent colors (overridable if you have corresponding theme variables) */
+  --accent-blue: #1e88e5; /* For bold text, etc. */
+  --accent-teal: #26a69a; /* For italic text, etc. */
+  --accent-green-dark: #2e7d32;
+  --accent-green: #43a047;
+  --accent-green-light: #81c784;
+  --accent-purple: #6200ea; /* For strong+em combos */
+  --accent-bg-gradient-1: linear-gradient(45deg, #6200ea, #7c4dff);
+  --accent-bg-gradient-2: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  --accent-bg-gradient-3: linear-gradient(135deg, #5e35b1, #7e57c2);
+  --accent-bg-gradient-4: linear-gradient(135deg, #00897b, #26a69a);
+}
+
+/* General body styling */
+body {
+  font-size: 17px !important;
+  line-height: 1.3 !important; /* Slightly increased line-height for readability */
+  font-family: "Cascadia Mono", monospace, "Amiri", "Noto Arabic",
+    "Noto Sans Arabic", "Noto Sans Cyrillic", Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  max-width: none; /* Remove default width constraint */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: justify; /* Justified text for a clean block look */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Arabic (RTL) support */
+[lang="ar"] {
+  font-family: "Amiri", "Noto Sans Arabic", "Noto Arabic", Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Russian support */
+[lang="ru"] {
+  font-family: "Noto Sans Cyrillic", "Arial", sans-serif;
+}
+
+/* More general multilingual text support */
+:lang(ar) {
+  font-family: "Amiri", "Noto Sans Arabic", "Noto Arabic", Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+:lang(ru) {
+  font-family: "Noto Sans Cyrillic", "Arial", sans-serif;
+}
+
+/* RTL specific adjustments */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] blockquote {
+  border-left: none;
+  border-right: 0.25em solid var(--border-color);
+  padding: 0 1em 0 0;
+}
+
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  padding-right: 2em;
+  padding-left: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--accent-green-dark); /* Dark forest green */
+}
+
+h2 {
+  font-size: 1.6em; /* Slightly bigger than 1.5em for better hierarchy */
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid var(--border-color);
+  color: #388e3c; /* Medium green */
+}
+
+h3 {
+  font-size: 1.4em;
+  color: #43a047; /* Green */
+}
+
+h4 {
+  font-size: 1.2em;
+  color: #4caf50; /* Light green */
+}
+
+h5 {
+  font-size: 1em;
+  color: #66bb6a; /* Pale green */
+}
+
+h6 {
+  font-size: 0.95em;
+  color: #81c784; /* Very light green */
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  /* Subtle glow effect on hover */
+  text-shadow: 0 0 2px var(--link-color);
+}
+
+/* Paragraphs and spacing */
+p,
+ul,
+ol,
+dl,
+table,
+pre,
+blockquote {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: 2em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25em;
+}
+
+/* Code */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+}
+
+pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: var(--code-bg);
+  border-radius: 6px;
+  /* Add slight box-shadow for a card-like effect */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  background-color: transparent;
+  border-radius: 0;
+  white-space: pre;
+}
+
+/* Blockquotes */
+blockquote {
+  padding: 0 1em;
+  color: var(--blockquote-color);
+  border-left: 0.25em solid var(--border-color);
+  /* Subtle tinted background for better callout */
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: auto;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid var(--table-border);
+}
+
+table th {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+table tr {
+  background-color: var(--background-color);
+}
+
+table tr:nth-child(2n) {
+  background-color: var(--table-stripe);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Horizontal Rule */
+hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: var(--border-color);
+  border: 0;
+}
+
+/* Task lists */
+ul.contains-task-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.contains-task-list li.task-list-item {
+  list-style-type: none;
+  padding-left: 24px;
+  margin-left: 0;
+  position: relative;
+}
+
+ul.contains-task-list li.task-list-item input[type="checkbox"] {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+}
+
+/* Callouts/Admonitions */
+.markdown-alert {
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  border-left: 4px solid;
+  border-radius: 4px;
+}
+
+.markdown-alert.note {
+  background-color: rgba(6, 114, 229, 0.1);
+  border-left-color: #0672e5;
+}
+
+.markdown-alert.warning {
+  background-color: rgba(248, 197, 78, 0.1);
+  border-left-color: #f8c54e;
+}
+
+.markdown-alert.important {
+  background-color: rgba(0, 96, 169, 0.1);
+  border-left-color: #0060a9;
+}
+
+/* Keyboard inputs */
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  line-height: 10px;
+  color: var(--text-color);
+  vertical-align: middle;
+  background-color: rgba(76, 175, 80, 0.1);
+  border: solid 1px var(--accent-green-dark);
+  border-bottom-color: #1b5e20;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 #388e3c;
+}
+
+/* Footnotes */
+sup {
+  font-size: 0.8em;
+  color: #1976d2;
+}
+
+.footnotes {
+  font-size: 0.85em;
+  color: #0288d1;
+  border-top: 1px solid #4caf50;
+  padding-top: 16px;
+}
+
+/* Print-friendly styles */
+@media print {
+  body {
+    font-size: 12pt;
+    color: #000;
+    background-color: #fff;
+  }
+
+  a {
+    color: #0277bd;
+    text-decoration: underline;
+  }
+}
+
+/* Enhanced Text Styling */
+strong,
+b {
+  color: var(--accent-blue); /* Vibrant blue for bold text */
+  font-weight: 700;
+  text-shadow: 0 0 0.6px rgba(30, 136, 229, 0.4);
+}
+
+em,
+i {
+  color: var(--accent-teal); /* Teal color for italic text */
+  font-style: italic;
+}
+
+/* Beautiful Numbered Lists */
+ol {
+  counter-reset: item;
+  list-style-type: none;
+  padding-left: 2em;
+}
+
+ol > li {
+  counter-increment: item;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+ol > li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: -1.5em;
+  width: 1.2em;
+  text-align: right;
+  font-weight: bold;
+  background: var(--accent-bg-gradient-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #3f51b5; /* Fallback for older browsers */
+}
+
+/* Nested list colors for visual hierarchy */
+ol > li > ol > li::before {
+  background: var(--accent-bg-gradient-3);
+  color: #5e35b1;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ol > li > ol > li > ol > li::before {
+  background: var(--accent-bg-gradient-4);
+  color: #00897b;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Highlight when text is both bold and italic */
+strong em,
+em strong,
+b i,
+i b {
+  color: var(--accent-purple);
+  background: var(--accent-bg-gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 1px rgba(124, 77, 255, 0.2);
+}
