@@ -5,5 +5,25 @@
     "activityBarBadge.foreground": "#262626",
     "statusBar.background": "#262626",
     "statusBar.foreground": "#e9dbb7"
-  }
+  },
+  "files.associations": {
+    "*.md": "markdown"
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*PSE_Lecture7_Transmission_Investment\\.md$",
+        "isAsync": true,
+        "cmd": "marp \"${file}\" --pptx --output \"${fileDirname}\\${fileBasenameNoExtension}_AutoSave.pptx\" --allow-local-files"
+      },
+      {
+        "match": "\\.md$",
+        "isAsync": true,
+        "cmd": "if (Get-Content \"${file}\" -First 10 | Select-String 'marp:\\s*true') { marp \"${file}\" --pptx --output \"${fileDirname}\\${fileBasenameNoExtension}_AutoSave.pptx\" --allow-local-files }",
+        "shell": "powershell"
+      }
+    ]
+  },
+  "runOnSave.statusMessageTimeout": 3000,
+  "runOnSave.shell": "powershell"
 }
